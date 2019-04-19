@@ -1,0 +1,13 @@
+[
+    {
+        "id": 0,
+        "singer": "Kenny",
+        "songTitle": "Every Rose Has It's Thorn",
+        "artistName": "Poison"
+    }, {
+        "id": 1,
+        "singer": "Bill",
+        "songTitle": "Taking Care of Business",
+        "artistName": "BTO"
+    }
+]

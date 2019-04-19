@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import SearchPanel from './components/SearchPanel';
+import QueuePanel from './components/QueuePanel';
+import songQueue from './mock-data/songQueue.json';
+import songLibrary from './mock-data/songLibrary.json';
+
 
 class App extends Component {
+    state = {
+        songQueue: songQueue
+    }
+
+  componentDidMount() { /*TODO: Setup DB & API */
+    console.log(this.state)
+  }
+
   render() {
+    const wrapperStyles = {
+      display: 'flex',
+      flexDirection: 'row wrap',
+      padding: '10px 2px',
+      height: '98vh',
+      width: '90vw',
+      margin: '0 auto',
+    }
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className='wrapper' style={wrapperStyles} > 
+          <SearchPanel/>
+          <QueuePanel songQueue={this.state.songQueue}/>
+        </div>
       </div>
-    );
+    )}
   }
-}
 
-export default App;
+  export default App;
