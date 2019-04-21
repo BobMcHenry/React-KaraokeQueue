@@ -7,7 +7,8 @@ import songLibrary from './mock-data/songLibrary.json';
 
 class App extends Component {
     state = {
-        songQueue: songQueue
+        songQueue: songQueue,
+        songLibrary: songLibrary
     }
 
   componentDidMount() { /*TODO: Setup DB & API */
