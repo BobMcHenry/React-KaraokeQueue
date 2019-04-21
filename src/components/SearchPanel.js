@@ -6,7 +6,7 @@ class SearchPanel extends Component {
     }
 
     render() {
-        const styles = {
+        const searchPanelStyles = {
             flex: '5',
             borderRight: '1px #666 solid',
             paddingRight: '10px',
@@ -34,7 +34,7 @@ class SearchPanel extends Component {
         }
         return (
             <div className='searchPanel'
-                style={styles}>
+                style={searchPanelStyles}>
                 <h1>Song Search</h1>
                 <form className='songSearch'
                     style={formStyles}>
