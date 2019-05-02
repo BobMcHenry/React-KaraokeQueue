@@ -4,7 +4,7 @@ export default class SearchResultsList extends Component {
   
   render() {
     const searchResults = this.props.searchResults;
-    const searchResultItems = searchResults.map((song) => <SearchResultItem song={song} addSongHandler={this.props.addSongHandler}/>);
+    const searchResultItems = searchResults.map((song) => <SearchResultItem key={song.id} song={song} addSongHandler={this.props.addSongHandler}/>);
     const styles = {
         paddingLeft: '5%', paddingRight: '3%'
 
