@@ -6,6 +6,7 @@ import QueuePanel from './components/QueuePanel';
 import songQueue from './mock-data/songQueue.json';
 
 
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -14,8 +15,7 @@ class App extends Component {
     this.removeSongFromQueue = this.removeSongFromQueue.bind(this)
   }
   state = {
-    songQueue: [...songQueue],
-    queueLength: songQueue.length
+    songQueue: [...songQueue]
 }
 
 
@@ -29,11 +29,9 @@ class App extends Component {
             artistName: song.artistName
         } 
     }
-
     this.setState( (state) => ({
-        queueLength: this.state.queueLength + 1,
         songQueue: [...this.state.songQueue, {
-            id: Math.floor(Math.random()*1000000000),
+            id: Math.floor(Math.random()*1000000000), //mock id format - not a good pattern for UUIDs
             singer: song.singer,
             songTitle: song.songTitle,
             artistName: song.artistName
@@ -44,7 +42,6 @@ class App extends Component {
 
   removeSongFromQueue(id){
     this.setState( (state) => ({
-        queueLength: this.state.queueLength - 1,
         songQueue: this.state.songQueue.filter(function (song) { return song.id !== id }) 
     })
     );
@@ -58,6 +55,7 @@ class App extends Component {
       height: '98vh',
       width: '90vw',
       margin: '0 auto',
+
     }
 
 
