@@ -35,12 +35,6 @@ export default class QueuePanel extends Component {
     }
 
     removeSongFromQueue(e,id){
-        console.log(this.state.songQueue.filter(function (song) { 
-            console.log("passed Id", id)
-            console.log("Song.id value", song.id)
-            return song.id !== id }
-            )
-        )
         this.setState( (state) => ({
             queueLength: this.state.queueLength - 1,
             songQueue: this.state.songQueue.filter(function (song) { return song.id !== id }) 
