@@ -57,7 +57,7 @@ class SearchPanel extends Component {
                         style={textBarStyles}/>
                     <input type='submit' value='Search' style={submitButtonStyles} onClick={(e) => this.searchSongs(e)} />
                 </form>
-                <SearchResultsList searchResults={this.state.searchResults} addSongHandler={this.props.addSongHandler}/>
+                <SearchResultsList searchResults={this.state.searchResults} openAddSongModal={this.props.openAddSongModal}/>
             </div>
         )
     }

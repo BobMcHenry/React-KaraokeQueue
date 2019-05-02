@@ -4,6 +4,7 @@ import SearchPanel from './components/SearchPanel';
 import QueuePanel from './components/QueuePanel';
 //Mock queue data to initiate state
 import songQueue from './mock-data/songQueue.json';
+import AddSongToQueueModal from './components/AddSongToQueueModal';
 
 
 
@@ -13,31 +14,28 @@ class App extends Component {
 
     this.addSongToQueue = this.addSongToQueue.bind(this, 'song');
     this.removeSongFromQueue = this.removeSongFromQueue.bind(this)
+    this.openAddSongModal = this.openAddSongModal.bind(this)
+    this.closeModalWithoutQueueing = this.closeModalWithoutQueueing.bind(this)
   }
   state = {
-    songQueue: [...songQueue]
+    songQueue: [...songQueue],
+    modalVisible: false
 }
 
 
   // Event Handlers that manipulate Queue State. Songs to the queueare added from the searchPanel
   // and removed from the queue in the Queue panel, so the state needs elevated to the parent component.
-  addSongToQueue(song){
-    if (song.singer === undefined){
-        song = {
-            singer: "Test Value",
-            songTitle: song.songTitle,
-            artistName: song.artistName
-        } 
-    }
+  addSongToQueue(singer, song){
     this.setState( (state) => ({
         songQueue: [...this.state.songQueue, {
-            id: Math.floor(Math.random()*1000000000), //mock id format - not a good pattern for UUIDs
-            singer: song.singer,
+            id: Math.floor(Math.random()*1000000000), //mock id format - not a good pattern for UIDs
+            singer: singer,
             songTitle: song.songTitle,
             artistName: song.artistName
         }] 
     })
     );
+    this.closeModalWithoutQueueing()
 }
 
   removeSongFromQueue(id){
@@ -46,6 +44,21 @@ class App extends Component {
     })
     );
   }
+
+  openAddSongModal(song){
+    this.setState({
+      modalVisible: true,
+      songToQueue: song
+    })
+  }
+
+  closeModalWithoutQueueing(){
+    this.setState({
+      modalVisible: false,
+      songToQueue: {}
+    })
+  }
+
 
   render() {
     const wrapperStyles = {
@@ -57,12 +70,21 @@ class App extends Component {
       margin: '0 auto',
 
     }
-
+    const modal =  
+      <AddSongToQueueModal 
+        modalVisible={this.state.modalVisible} 
+        modalToggle={this.openAddSongModal} 
+        song={this.state.songToQueue}
+        singer={this.state.singerName}
+        addSongToQueue={this.addSongToQueue}
+        closeModalWithoutQueueing={this.closeModalWithoutQueueing}
+      />
 
     return (
       <div className="App">
+       {this.state.modalVisible ? modal : ""}
         <div className='wrapper' style={wrapperStyles} >
-          <SearchPanel addSongHandler={this.addSongToQueue}/>
+          <SearchPanel addSongHandler={this.addSongToQueue} openAddSongModal={this.openAddSongModal}/>
           <QueuePanel songQueue={this.state.songQueue} removeSongFromQueue={this.removeSongFromQueue}/>
         </div>
       </div>

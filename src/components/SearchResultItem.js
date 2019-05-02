@@ -24,7 +24,7 @@ export default class SearchResultItem extends Component {
         <div style={{flex: 5}}> {this.props.song.artistName}</div>
         <div style={{flex: 5}}>{this.props.song.songTitle}</div>
         <div style={{flex: 5}}>{this.props.song.songLength}</div>
-        <button style={AddToQueueButtonStyles} onClick={(singerName, song) => this.props.addSongHandler(song )} >
+        <button style={AddToQueueButtonStyles} onClick={(song) => this.props.openAddSongModal(this.props.song )} >
                         <strong>+</strong>
                     </button>
       </div>
