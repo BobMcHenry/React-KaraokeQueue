@@ -4,7 +4,6 @@ export default class SongQueueItem extends Component {
 
     constructor(props){
         super(props);
-        console.log('in Props ',  this.props)
     }
 
     render() {

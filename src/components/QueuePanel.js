@@ -40,7 +40,6 @@ export default class QueuePanel extends Component {
             songQueue: this.state.songQueue.filter(function (song) { return song.id !== id }) 
         })
         );
-        console.log(this.state)
     }
 
 
