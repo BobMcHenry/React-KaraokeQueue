@@ -1,6 +1,12 @@
 import React, {Component} from 'react'
 
 export default class SongQueueItem extends Component {
+
+    constructor(props){
+        super(props);
+        console.log('in Props ',  this.props)
+    }
+
     render() {
         const styles = {
             display: 'flex',
@@ -48,7 +54,7 @@ export default class SongQueueItem extends Component {
                 <div style={
                     {flex: 1}
                 }>
-                    <button style={deleteButtonStyles}>
+                    <button style={deleteButtonStyles} onClick={(id) => this.props.removeHandler(this.props.song.id)} >
                         <strong>X</strong>
                     </button>
                 </div>

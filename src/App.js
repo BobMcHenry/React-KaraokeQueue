@@ -1,19 +1,10 @@
 import React, {Component} from 'react';
 import SearchPanel from './components/SearchPanel';
 import QueuePanel from './components/QueuePanel';
-import songQueue from './mock-data/songQueue.json';
 import songLibrary from './mock-data/songLibrary.json';
 
 
 class App extends Component {
-    state = {
-        songQueue: songQueue,
-        songLibrary: songLibrary
-    }
-
-  componentDidMount() { /*TODO: Setup DB & API */
-    console.log(this.state)
-  }
 
   render() {
     const wrapperStyles = {
@@ -25,11 +16,12 @@ class App extends Component {
       margin: '0 auto',
     }
 
+
     return (
       <div className="App">
-        <div className='wrapper' style={wrapperStyles} > 
-          <SearchPanel/>
-          <QueuePanel songQueue={this.state.songQueue}/>
+        <div className='wrapper' style={wrapperStyles} >
+          <SearchPanel />
+          <QueuePanel />
         </div>
       </div>
     )}
