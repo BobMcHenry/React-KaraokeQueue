@@ -1,16 +1,14 @@
-{
-    "songLibrary": [
-        {
-            "id": 0,
-            "songTitle": "Song Title",
-            "artistName" : "Artist Name",
-            "length": "3:21"
-        },
-        {
-            "id": 1,
-            "songTitle": "Song Title II",
-            "artistName" : "Artist Name II",
-            "length": "3:21"
-        }
-    ]
-}
+ [
+    {
+        "id": 0,
+        "songTitle": "Song Title",
+        "artistName" : "Artist Name",
+        "songLength": "3:21"
+    },
+    {
+        "id": 1,
+        "songTitle": "Song Title II",
+        "artistName" : "Artist Name II",
+        "songLength": "3:21"
+    }
+]

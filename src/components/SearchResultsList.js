@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import SearchResultItem from './SearchResultItem';
 export default class SearchResultsList extends Component {
-  state = {songLibrary: songLibrary}
+  
   render() {
-    const queuedSongList = this.props.songQueue
-    const queuedSongListItems = queuedSongList.map((song) => <SongQueueItem song={song}/>)
+    const searchResults = this.props.searchResults;
+    const searchResultItems = searchResults.map((song) => <SearchResultItem song={song} addSongHandler={this.props.addSongHandler}/>);
     const styles = {
         paddingLeft: '5%', paddingRight: '3%'
 
     }
     return (
         <div style={styles}>
-            <ul style={{padding: '0px'}}> {queuedSongListItems} </ul>
+            <ul style={{padding: '0px'}}> {searchResultItems} </ul>
         </div>
     )
   }

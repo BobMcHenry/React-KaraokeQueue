@@ -2,10 +2,6 @@ import React, {Component} from 'react'
 
 export default class SongQueueItem extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const styles = {
             display: 'flex',

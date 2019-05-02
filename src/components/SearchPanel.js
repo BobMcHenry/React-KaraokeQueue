@@ -1,9 +1,24 @@
 import React, {Component} from 'react'
+import songLibrary from '../mock-data/songLibrary.json';
+import SearchResultsList from './SearchResultsList.js';
 
 class SearchPanel extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            searchResults: []
+        }
+    }
+
     searchSongs(e){
         e.preventDefault();
+        this.setState({
+            searchResults: [...songLibrary]
+        })
     }
+
+
 
     render() {
         const searchPanelStyles = {
@@ -40,8 +55,9 @@ class SearchPanel extends Component {
                     style={formStyles}>
                     <input type='text'
                         style={textBarStyles}/>
-                    <input type='submit' value='Search' style={submitButtonStyles} onClick={this.searchSongs} />
+                    <input type='submit' value='Search' style={submitButtonStyles} onClick={(e) => this.searchSongs(e)} />
                 </form>
+                <SearchResultsList searchResults={this.state.searchResults} addSongHandler={this.props.addSongHandler}/>
             </div>
         )
     }
