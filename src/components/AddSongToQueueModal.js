@@ -40,6 +40,8 @@ export default class AddSongToQueueModal extends Component {
                         height: '25px'
                     }} 
                     onClick={
+                        //defined literal event handler, since it's just clientside validation
+                        // TODO: Wrap in function
                         (singer, song) => {
                             const singerName=document.getElementById("singerName").value
                             if (singerName){ this.props.addSongToQueue(singerName, this.props.song) }

@@ -23,7 +23,7 @@ class App extends Component {
 }
 
 
-  // Event Handlers that manipulate Queue State. Songs to the queueare added from the searchPanel
+  // Event Handlers that manipulate Queue State. Songs to the queue are added from the searchPanel
   // and removed from the queue in the Queue panel, so the state needs elevated to the parent component.
   addSongToQueue(singer, song){
     this.setState( (state) => ({
