@@ -82,7 +82,7 @@ class App extends Component {
 
     return (
       <div className="App">
-       {this.state.modalVisible ? modal : ""}
+       {this.state.modalVisible ? modal : null}
         <div className='wrapper' style={wrapperStyles} >
           <SearchPanel addSongHandler={this.addSongToQueue} openAddSongModal={this.openAddSongModal}/>
           <QueuePanel songQueue={this.state.songQueue} removeSongFromQueue={this.removeSongFromQueue}/>
