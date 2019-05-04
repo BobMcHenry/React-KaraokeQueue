@@ -12,26 +12,27 @@ class App extends Component {
   constructor(props){
     super(props);
 
-    this.addSongToQueue = this.addSongToQueue.bind(this, 'song');
+    this.addSongToQueue = this.addSongToQueue.bind(this);
     this.removeSongFromQueue = this.removeSongFromQueue.bind(this)
     this.openAddSongModal = this.openAddSongModal.bind(this)
     this.closeModalWithoutQueueing = this.closeModalWithoutQueueing.bind(this)
   }
   state = {
     songQueue: [...songQueue],
-    modalVisible: false
+    modalVisible: false,
+    songToQueue: null
 }
 
 
   // Event Handlers that manipulate Queue State. Songs to the queue are added from the searchPanel
   // and removed from the queue in the Queue panel, so the state needs elevated to the parent component.
-  addSongToQueue(singer, song){
+  addSongToQueue(singerName){
     this.setState( (state) => ({
         songQueue: [...this.state.songQueue, {
             id: Math.floor(Math.random()*1000000000), //mock id format - not a good pattern for UIDs
-            singer: singer,
-            songTitle: song.songTitle,
-            artistName: song.artistName
+            singer: singerName,
+            songTitle: this.state.songToQueue.songTitle,
+            artistName: this.state.songToQueue.artistName
         }] 
     })
     );

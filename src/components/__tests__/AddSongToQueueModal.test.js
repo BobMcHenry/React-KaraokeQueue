@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { shallow, mount, render } from 'enzyme';
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'; //needed for Jest snapshots
 
 
 import AddSongToQueueModal from '../AddSongToQueueModal';
@@ -15,7 +15,7 @@ describe('[UNIT] Add Song to Queue Modal', () => {
   beforeAll(() => {
     mockProps = {
       modalVisible: true,
-      modalToggle: jest.fn(), 
+      modalToggle: jest.fn(),
       song: { 
         "songTitle": "Something to believe in",
         "artistName": "Poison"

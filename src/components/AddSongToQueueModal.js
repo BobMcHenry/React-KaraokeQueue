@@ -5,9 +5,9 @@ export default class AddSongToQueueModal extends Component {
 
 
     render() {
-        const validateSingerNameHandler = (singer, song) => {
-            const singerName=document.getElementById("singerName").value
-            if (singerName){ this.props.addSongToQueue(singerName, this.props.song) }
+        const validateSingerNameHandler = () => {
+            const singerName = document.getElementById("singerNameInput").value
+            if (singerName){ this.props.addSongToQueue(singerName) }
             else { 
                 document.getElementById('singerNameLabel').style.color = "red";
                 document.getElementById('singerNameLabel').style.fontWeight = "bold";
