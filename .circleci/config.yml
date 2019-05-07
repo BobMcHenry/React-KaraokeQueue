@@ -15,11 +15,15 @@ jobs:
           paths:
             - ./node_modules
   test:
+    docker:
+      - image: circleci/node:8
     steps:
       - run:
           name: Run Test and Coverage
           command: npm test -- --coverage
   deploy:
+    docker:
+      - image: circleci/node:8
       steps:
         - run:
           name: Build & Deploy to GH Pages
