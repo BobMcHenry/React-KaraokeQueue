@@ -34,13 +34,11 @@ describe('[UNIT] Add Song to Queue Modal', () => {
 
   it('has Submit Song to Queue button visible?', ()=> {
     expect(
-      addSongToQueueModal.find('#modalSubmitButton').exists()
-    ).toBe(true)
+      addSongToQueueModal.find('#modalSubmitButton').exists()).toBe(true)
   })
 
   it('has valid has cancel button visible?', ()=> {
     expect(
-      addSongToQueueModal.find('#modalCancelButton').exists()
-    ).toBe(true)
+      addSongToQueueModal.find('#modalCancelButton').exists()).toBe(true)
   })
 });

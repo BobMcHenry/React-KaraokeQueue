@@ -3,6 +3,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import QueuePanel from '../QueuePanel';
+import SongQueueList from '../SongQueueList';
 
 describe("[UNIT] Queue Panel", ()=>{
     // From APP.js <QueuePanel songQueue={this.state.songQueue} removeSongFromQueue={this.removeSongFromQueue}/>
@@ -23,5 +24,11 @@ describe("[UNIT] Queue Panel", ()=>{
         
         expect(queuePanelHeading.exists()).toBe(true);
         expect(queuePanelHeading.text()==="Song Queue").toBe(true);
+    })
+
+    it("has a SongQueueList compnenet", ()=> {
+        const songQueueList = queuePanel.find(SongQueueList);
+        
+        expect(songQueueList.exists()).toBe(true);
     })
 })
