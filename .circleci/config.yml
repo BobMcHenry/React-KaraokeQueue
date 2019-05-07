@@ -3,9 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:8
-    branches:
-      only:
-        - master
     steps:
       - checkout
       - restore_cache:
@@ -17,10 +14,14 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+  test:
+    steps:
       - run:
           name: Run Test and Coverage
           command: npm test -- --coverage
-      - run:
+  deploy:
+      steps:
+        - run:
           name: Build & Deploy to GH Pages
           environment: 
             GITHUB_NAME: bobmchenry
@@ -29,4 +30,24 @@ jobs:
             git config --global user.email "${GITHUB_NAME}"
             git config --global user.name "${GITHUB_EMAIL}"
             npm run deploy
-          
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+  
+  build_test_deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
