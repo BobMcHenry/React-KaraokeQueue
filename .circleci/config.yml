@@ -29,6 +29,8 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
         name: Build & Deploy to GH Pages
         environment: 
@@ -49,10 +51,17 @@ workflows:
   
   build_test_deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: master
+
       - test:
           requires:
             - build
+          filters:
+            branches:
+              only: master
       - deploy:
           requires:
             - test
