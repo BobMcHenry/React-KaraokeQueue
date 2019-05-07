@@ -18,10 +18,7 @@ jobs:
           name: Run Test and Coverage
           command: npm test
       - run:
-          name: Build App
-          command: npm run build
-      - run:
-          name: Deploy to GH Pages
+          name: Build & Deploy to GH Pages
           environment: 
             GITHUB_NAME: bobmchenry
             GITHUB_EMAIL: bobmchenryvideo@gmail.com
