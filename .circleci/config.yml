@@ -18,6 +18,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - checkout
       - run:
           name: Run Test and Coverage
           command: npm test -- --coverage
@@ -25,6 +26,7 @@ jobs:
     docker:
       - image: circleci/node:8
       steps:
+        - checkout
         - run:
           name: Build & Deploy to GH Pages
           environment: 
