@@ -51,7 +51,7 @@ class SearchPanel extends Component {
             <div className='searchPanel'
                 style={searchPanelStyles}>
                 <h1 id="searchPanelLabel">Song Search</h1>
-                <form className='songSearch'
+                <form className='songSearch' 
                     style={formStyles}>
                     <input type='text' id='searchQueryInput'
                         style={textBarStyles}/>
