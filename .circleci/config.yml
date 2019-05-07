@@ -17,10 +17,10 @@ jobs:
       - run:
           name: Run Test and Coverage
           command: npm test
-      - build:
+      - run:
           name: Build App
           command: npm run build
-      - deploy:
+      - run:
           name: Deploy to GH Pages
           command: npm run deploy
           
