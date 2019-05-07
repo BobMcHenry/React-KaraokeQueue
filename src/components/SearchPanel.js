@@ -50,7 +50,7 @@ class SearchPanel extends Component {
         return (
             <div className='searchPanel'
                 style={searchPanelStyles}>
-                <h1>Song Search</h1>
+                <h1 id="searchPanelLabel">Song Search</h1>
                 <form className='songSearch'
                     style={formStyles}>
                     <input type='text'
