@@ -13,13 +13,17 @@ describe("[UNIT] Queue Panel", ()=>{
 
     beforeAll(() => {
         mockProps = {
-            
+            removeSongFromQueue: jest.fn(),
+            songQueue: [{id: "0001", singer: "Test Singer", songTitle: "Song name", artistName:"Artist Name"}]
         };
         queuePanel = mount(<QueuePanel {...mockProps} />)
     });
 
 
     it("has a label", ()=> {
-        expect(true).toBe(false);
+        const queuePanelHeading = queuePanel.find('#queuePanelLabel');
+        
+        expect(queuePanelHeading.exists()).toBe(true);
+        expect(queuePanelHeading.text()==="Song Queue").toBe(true);
     })
 })

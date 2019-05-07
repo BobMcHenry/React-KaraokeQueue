@@ -14,7 +14,7 @@ export default class QueuePanel extends Component {
         return (
             <div className='queuePanel'
                 style={styles}>
-                <h1>Song Queue</h1>
+                <h1 id='queuePanelLabel'>Song Queue</h1>
                 <SongQueueList songQueue={this.props.songQueue} removeHandler={this.props.removeSongFromQueue}/>
             </div>
         )
