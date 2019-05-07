@@ -61,13 +61,17 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: master
+              ignore: 
+                - master 
+                - gh-pages
       - test:
           requires:
             - build
           filters:
             branches:
-              ignore: master
+              ignore: 
+                - master 
+                - gh-pages
   
   build_test_deploy:
     jobs:
