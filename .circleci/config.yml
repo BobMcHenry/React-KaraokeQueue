@@ -1,8 +1,13 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:8.9.1
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:8
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -13,17 +18,70 @@ jobs:
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - ./node_modules
+            - node_modules
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Run Test and Coverage
           command: npm test -- --coverage
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Build & Deploy to GH Pages
-          environment: 
-            GITHUB_NAME: bobmchenry
-            GITHUB_EMAIL: bobmchenryvideo@gmail.com
-          command: |
-            git config --global user.email "${GITHUB_NAME}"
-            git config --global user.name "${GITHUB_EMAIL}"
-            npm run deploy
-          
+        name: Build & Deploy to GH Pages
+        environment: 
+          GITHUB_NAME: bobmchenry
+          GITHUB_EMAIL: bobmchenryvideo@gmail.com
+        command: |
+          git config --global user.email "${GITHUB_NAME}"
+          git config --global user.name "${GITHUB_EMAIL}"
+          npm run deploy
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: master
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: master
+  
+  build_test_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

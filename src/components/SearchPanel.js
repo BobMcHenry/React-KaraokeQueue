@@ -50,12 +50,12 @@ class SearchPanel extends Component {
         return (
             <div className='searchPanel'
                 style={searchPanelStyles}>
-                <h1>Song Search</h1>
-                <form className='songSearch'
+                <h1 id="searchPanelLabel">Song Search</h1>
+                <form className='songSearch' 
                     style={formStyles}>
-                    <input type='text'
+                    <input type='text' id='searchQueryInput'
                         style={textBarStyles}/>
-                    <input type='submit' value='Search' style={submitButtonStyles} onClick={(e) => this.searchSongs(e)} />
+                    <input type='submit' id='searchButton' value='Search' style={submitButtonStyles} onClick={(e) => this.searchSongs(e)} />
                 </form>
                 <SearchResultsList searchResults={this.state.searchResults} openAddSongModal={this.props.openAddSongModal}/>
             </div>
