@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/React-KaraokeQueue/static/js/runtime~main.1c66d1cf.js"
   },
   {
-    "revision": "d68c98b8b7b51edfb910",
-    "url": "/React-KaraokeQueue/static/js/main.4e6183ba.chunk.js"
+    "revision": "9f431e8a7dc43f6b2fea",
+    "url": "/React-KaraokeQueue/static/js/main.af38e05c.chunk.js"
   },
   {
     "revision": "7b40d0c268f09fe102be",
     "url": "/React-KaraokeQueue/static/js/2.161f5fa1.chunk.js"
   },
   {
-    "revision": "d68c98b8b7b51edfb910",
+    "revision": "9f431e8a7dc43f6b2fea",
     "url": "/React-KaraokeQueue/static/css/main.606ec67d.chunk.css"
   },
   {
-    "revision": "1a2c14736555e6174a1380f4f9ef60d7",
+    "revision": "6864a91df44dbe7696705633082dab13",
     "url": "/React-KaraokeQueue/index.html"
   }
 ];
