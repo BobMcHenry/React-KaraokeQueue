@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import { shallow, mount, render } from 'enzyme';
-import renderer from 'react-test-renderer'; //needed for Jest snapshots
+import { mount } from 'enzyme';
 
 import QueuePanel from '../QueuePanel';
 
