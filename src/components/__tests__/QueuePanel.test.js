@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import QueuePanel from '../QueuePanel';
 
@@ -14,7 +14,7 @@ describe("[UNIT] Queue Panel", ()=>{
             removeSongFromQueue: jest.fn(),
             songQueue: [{id: "0001", singer: "Test Singer", songTitle: "Song name", artistName:"Artist Name"}]
         };
-        queuePanel = mount(<QueuePanel {...mockProps} />)
+        queuePanel = shallow(<QueuePanel {...mockProps} />)
     });
 
 

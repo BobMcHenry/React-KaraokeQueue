@@ -1,5 +1,5 @@
 import React from 'react';
-import {  mount } from 'enzyme';
+import {  shallow } from 'enzyme';
 
 import AddSongToQueueModal from '../AddSongToQueueModal';
 
@@ -25,7 +25,7 @@ describe('[UNIT] Add Song to Queue Modal', () => {
       addSongToQueue: jest.fn(),
       closeModalWithoutQueueing: jest.fn()
     }
-    addSongToQueueModal = mount(<AddSongToQueueModal {...mockProps}/>)
+    addSongToQueueModal = shallow(<AddSongToQueueModal {...mockProps}/>)
   });
 
   it('has singer name input field visible?', ()=> {
