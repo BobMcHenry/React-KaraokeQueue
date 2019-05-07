@@ -42,14 +42,14 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-        name: Build & Deploy to GH Pages
-        environment: 
-          GITHUB_NAME: bobmchenry
-          GITHUB_EMAIL: bobmchenryvideo@gmail.com
-        command: |
-          git config --global user.email "${GITHUB_NAME}"
-          git config --global user.name "${GITHUB_EMAIL}"
-          npm run deploy
+          name: Build & Deploy to GH Pages
+          environment: 
+            GITHUB_NAME: bobmchenry
+            GITHUB_EMAIL: bobmchenryvideo@gmail.com
+          command: |
+            git config --global user.email "${GITHUB_NAME}"
+            git config --global user.name "${GITHUB_EMAIL}"
+            npm run deploy
 
 workflows:
   version: 2
