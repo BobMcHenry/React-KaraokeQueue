@@ -22,8 +22,11 @@ jobs:
           command: npm run build
       - run:
           name: Deploy to GH Pages
+          environment: 
+            GITHUB_NAME: bobmchenry
+            GITHUB_EMAIL: bobmchenryvideo@gmail.com
           command: |
-            git config --global user.email "$GIT_AUTHOR_EMAIL"
-            git config --global user.name "$GIT_AUTHOR_NAME"
+            git config --global user.email "${GITHUB_NAME}"
+            git config --global user.name "${GITHUB_EMAIL}"
             npm run deploy
           
