@@ -16,7 +16,7 @@ jobs:
             - ./node_modules
       - run:
           name: Run Test and Coverage
-          command: npm test
+          command: npm test -- --coverage
       - run:
           name: Build & Deploy to GH Pages
           environment: 
