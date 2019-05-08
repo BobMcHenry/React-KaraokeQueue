@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -m '[SKIP CI]'",
+    "deploy": "gh-pages -m \"[skip ci]\" -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src"
