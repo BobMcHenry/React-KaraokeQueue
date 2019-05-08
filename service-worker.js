@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/React-KaraokeQueue/precache-manifest.59d28f5e01049d905e9eee43f6a8cc3f.js"
+  "/React-KaraokeQueue/precache-manifest.9ea8995a3d8d90498e01d16e83778247.js"
 );
 
 workbox.clientsClaim();
