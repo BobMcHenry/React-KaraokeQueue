@@ -7,11 +7,10 @@ export default class SearchResultsList extends Component {
     const searchResultItems = searchResults.map((song) => <SearchResultItem key={song.id} song={song} openAddSongModal={this.props.openAddSongModal}/>);
     const styles = {
         paddingLeft: '5%', paddingRight: '3%'
-
     }
     return (
         <div style={styles}>
-            <ul style={{padding: '0px'}}> {searchResultItems} </ul>
+            {searchResultItems}
         </div>
     )
   }
