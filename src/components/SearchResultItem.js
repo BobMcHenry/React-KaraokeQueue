@@ -21,10 +21,10 @@ export default class SearchResultItem extends Component {
 }
     return (
       <div style={styles}>
-        <div style={{flex: 5}}> {this.props.song.artistName}</div>
+        <div style={{flex: 5}}>{this.props.song.artistName}</div>
         <div style={{flex: 5}}>{this.props.song.songTitle}</div>
         <div style={{flex: 5}}>{this.props.song.songLength}</div>
-        <button style={AddToQueueButtonStyles} onClick={() => this.props.openAddSongModal(this.props.song)} >
+        <button id={'addToQueueButton-'+this.props.song.id} style={AddToQueueButtonStyles} onClick={() => this.props.openAddSongModal(this.props.song)} >
           <strong>+</strong>
         </button>
       </div>
