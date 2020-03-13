@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
 export default class AddSongToQueueModal extends Component {
-
-
-
     render() {
         const validateSingerNameHandler = () => {
             const singerName = document.getElementById("singerNameInput").value
@@ -53,7 +50,6 @@ export default class AddSongToQueueModal extends Component {
 
         return (
             <div id='appCoverUp' style={appCoverUpStyle}>
-            
                 <div id='modalPanel' style={modalPanelStyle}>
                     <h3 id='modalHeader' style={modalHeaderStyle}>
                         Add <em>{this.props.song.songTitle}</em> by <em>{this.props.song.artistName}</em> to queue

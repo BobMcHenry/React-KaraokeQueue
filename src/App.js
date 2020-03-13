@@ -5,8 +5,7 @@ import QueuePanel from './components/QueuePanel';
 //Mock queue data to initiate state
 import songQueue from './mock-data/songQueue.json';
 import AddSongToQueueModal from './components/AddSongToQueueModal';
-
-
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -69,7 +68,6 @@ class App extends Component {
       height: '98vh',
       width: '90vw',
       margin: '0 auto',
-
     }
     const modal =  
       <AddSongToQueueModal 
@@ -85,8 +83,8 @@ class App extends Component {
       <div className="App">
        {this.state.modalVisible ? modal : null}
         <div className='wrapper' style={wrapperStyles} >
-          <SearchPanel addSongHandler={this.addSongToQueue} openAddSongModal={this.openAddSongModal}/>
-          <QueuePanel songQueue={this.state.songQueue} removeSongFromQueue={this.removeSongFromQueue}/>
+          <SearchPanel className="searchPanel" addSongHandler={this.addSongToQueue} openAddSongModal={this.openAddSongModal}/>
+          <QueuePanel className="queuePanel" songQueue={this.state.songQueue} removeSongFromQueue={this.removeSongFromQueue}/>
         </div>
       </div>
     )}
